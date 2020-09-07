@@ -1,6 +1,6 @@
 package Week_01
 
-// 交换移动法
+// 顺序让位法
 func moveZeroes(nums []int) {
 	if len(nums) == 0 {
 		return
