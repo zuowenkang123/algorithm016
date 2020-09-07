@@ -2,7 +2,7 @@ package Week_01
 
 var stairsMap map[int]int
 
-// 递归解法
+// 递归解法，记忆化搜索法
 func climbStairs(n int) int {
 	// 初始数据
 	if n == 0 || n == 1 || n == 2 {
@@ -20,7 +20,7 @@ func climbStairs(n int) int {
 	return stairsMap[n]
 }
 
-// 动态规划,递推逻辑
+// 动态规划,递推解法，数组填入法
 func climbStairsDp(n int) int {
 	if n == 0 || n == 1 {
 		return 1
@@ -37,7 +37,7 @@ func climbStairsDp(n int) int {
 	return stairArr[n-1]
 }
 
-// 动态规划,递推逻辑,空间复杂度下降
+// 动态规划,递推解法,前后移动法
 func climbStairsDp2(n int) int {
 	if n == 1 || n == 2 {
 		return n
