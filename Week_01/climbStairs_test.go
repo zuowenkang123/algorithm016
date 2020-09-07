@@ -5,5 +5,5 @@ import (
 )
 
 func TestClimbStairsDp(t *testing.T) {
-	climbStairsDp(10)
+	climbStairsDp(1)
 }
