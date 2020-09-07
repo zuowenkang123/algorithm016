@@ -22,6 +22,9 @@ func climbStairs(n int) int {
 
 // 动态规划,递推逻辑
 func climbStairsDp(n int) int {
+	if n == 0 || n == 1 {
+		return 1
+	}
 	stairArr := make([]int, 0, n)
 	// 初始数据
 	stairArr = append(stairArr, 1)
@@ -32,4 +35,20 @@ func climbStairsDp(n int) int {
 	}
 
 	return stairArr[n-1]
+}
+
+// 动态规划,递推逻辑,空间复杂度下降
+func climbStairsDp2(n int) int {
+	if n == 1 || n == 2 {
+		return n
+	}
+	pre := 1
+	suf := 2
+	result := 0
+	for i := 3; i <= n; i++ {
+		result = pre + suf
+		pre, suf = suf, result
+	}
+
+	return result
 }
