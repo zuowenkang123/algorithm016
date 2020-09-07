@@ -1,6 +1,8 @@
 package Week_01
 
-// 顺序让位法
+// https://leetcode-cn.com/problems/move-zeroes/
+
+// 顺序让位法，同向指针
 func moveZeroes(nums []int) {
 	if len(nums) == 0 {
 		return
