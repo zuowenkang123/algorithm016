@@ -1,7 +1,7 @@
 package Week_01
 
 // https://leetcode-cn.com/problems/excel-sheet-column-title/
-
+// 2020-09-08
 func convertToTitle(n int) string {
 	arr := []string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 	reverse := ""

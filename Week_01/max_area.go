@@ -1,5 +1,7 @@
 package Week_01
 
+// 2020-09-07
+
 // 双向指针
 func maxArea(height []int) int {
 	if len(height) < 2 {

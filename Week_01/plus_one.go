@@ -1,6 +1,8 @@
 package Week_01
 
+// 2020-09-08
 // 暴力法，最后处理进位的问题
+
 func plusOne(digits []int) []int {
 	for i := len(digits) - 1; i >= 0; i-- {
 		digits[i]++
