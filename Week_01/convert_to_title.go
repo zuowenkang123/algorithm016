@@ -18,8 +18,24 @@ func convertToTitle(n int) string {
 	return res
 }
 
-// 错误写法
+// char
 func convertToTitle1(n int) string {
+	reverse := ""
+	for n != 0 {
+		n-- // 这种1/0不对应的，先归0
+		reverse += string('A' + n%26)
+		n = n / 26
+	}
+	res := ""
+	for i := len(reverse) - 1; i >= 0; i-- {
+		res += string(reverse[i])
+	}
+
+	return res
+}
+
+// 错误写法
+func convertToTitle2(n int) string {
 	arr := []string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
 	reverse := ""
 	for n != 0 {
@@ -31,6 +47,5 @@ func convertToTitle1(n int) string {
 	for i := len(reverse) - 1; i >= 0; i-- {
 		res += string(reverse[i])
 	}
-
 	return res
 }
