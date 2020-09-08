@@ -5,6 +5,7 @@ func plusOne(digits []int) []int {
 	for i := len(digits) - 1; i >= 0; i-- {
 		digits[i]++
 		digits[i] = digits[i] % 10
+		// 只有9才会为0，因为是加1
 		if digits[i] != 0 {
 			return digits
 		}
@@ -16,7 +17,7 @@ func plusOne(digits []int) []int {
 	return res
 }
 
-// 进位可见
+// 进位可见，常用方法
 func plusOne1(digits []int) []int {
 	carry := 1
 	for i := len(digits) - 1; i >= 0; i-- {
