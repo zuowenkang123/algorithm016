@@ -4,7 +4,9 @@ import "sort"
 
 // https://leetcode-cn.com/problems/two-sum/
 // 2020-09-09
-// 两数之和,问题在于如何获取原下标【map不行，相同的数无法区分】
+// 两数之和,问题在于如何获取原下标
+
+// 排序+双指针+数组对比得下标
 func twoSum(nums []int, target int) []int {
 	// 条件判断
 	if len(nums) < 2 {
@@ -35,16 +37,18 @@ func twoSum(nums []int, target int) []int {
 			head++
 		}
 	}
-	pos := 0
 	indexArr := make([]int, 0)
 	for i := 0; i < len(nums); i++ {
-		if pos >= 2 {
-			break
-		}
-		if numArr[pos] == nums[i] {
-			indexArr = append(indexArr, i)
-			pos++
+		for j := 0; j < len(numArr); j++ {
+			if nums[i] == numArr[j] {
+				indexArr = append(indexArr, i)
+				break
+			}
 		}
 	}
 	return indexArr
+}
+
+func twoSum1(nums []int, target int) []int {
+	return []int{0}
 }
