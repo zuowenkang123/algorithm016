@@ -5,7 +5,7 @@ import (
 )
 
 // https://leetcode-cn.com/problems/3sum/
-
+// 2020-09-08
 // 三数之和
 func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
