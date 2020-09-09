@@ -14,7 +14,7 @@ func threeSum(nums []int) [][]int {
 		return resArr
 	}
 	for i := 0; i < len(nums); i++ {
-		// 重复判断，还可以map
+		// 重复判断，当前位置对比之前。还可以map
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
@@ -25,7 +25,7 @@ func threeSum(nums []int) [][]int {
 			if nums[head]+nums[tail]+nums[i] == 0 {
 				// 添加
 				resArr = append(resArr, []int{nums[head], nums[tail], nums[i]})
-				// 处理左重复逻辑
+				// 处理左重复逻辑，右边的会被兼容
 				for head < tail && nums[head] == nums[head+1] {
 					head++
 				}
