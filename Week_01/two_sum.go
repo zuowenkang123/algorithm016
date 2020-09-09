@@ -50,6 +50,15 @@ func twoSum(nums []int, target int) []int {
 	return indexArr
 }
 
+// 反向map法
 func twoSum1(nums []int, target int) []int {
-	return []int{0}
+	numMap := make(map[int]int)
+	for i, num := range nums {
+		// 只对应一个答案
+		if _, ok := numMap[target-num]; ok {
+			return []int{i, numMap[target-num]}
+		}
+		numMap[num] = i
+	}
+	return []int{}
 }
