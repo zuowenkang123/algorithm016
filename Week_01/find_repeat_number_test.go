@@ -31,3 +31,33 @@ func findRepeatNumber1(nums []int) int {
 	}
 	return 0
 }
+
+// 临时数组
+func findRepeatNumber2(nums []int) int {
+	if len(nums) < 2 {
+		return 0
+	}
+	numArr := make([]int, 0, len(nums))
+	for i := 1; i < len(nums); i++ {
+		numArr[nums[i]]++
+		if numArr[nums[i]] > 1 {
+			return nums[i]
+		}
+	}
+	return 0
+}
+
+// 下标归位法
+func findRepeatNumber3(nums []int) int {
+	if len(nums) < 2 {
+		return 0
+	}
+	numArr := make([]int, 0, len(nums))
+	for i := 1; i < len(nums); i++ {
+		numArr[nums[i]]++
+		if numArr[nums[i]] > 1 {
+			return nums[i]
+		}
+	}
+	return 0
+}
