@@ -38,6 +38,7 @@ func twoSum(nums []int, target int) []int {
 		}
 	}
 	indexArr := make([]int, 0)
+	// 主数组在外层，保证每个元素仅一次
 	for i := 0; i < len(nums); i++ {
 		for j := 0; j < len(numArr); j++ {
 			if nums[i] == numArr[j] {
