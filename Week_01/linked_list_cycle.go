@@ -24,3 +24,17 @@ func hasCycle(head *ListNode) bool {
 	}
 	return true
 }
+
+// map
+func hasCycle1(head *ListNode) bool {
+	listMap := make(map[*ListNode]bool)
+
+	for head != nil {
+		if _, ok := listMap[head]; ok {
+			return true
+		}
+		listMap[head] = true
+		head = head.Next
+	}
+	return false
+}
