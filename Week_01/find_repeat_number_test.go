@@ -32,7 +32,7 @@ func findRepeatNumber1(nums []int) int {
 	return 0
 }
 
-// 临时数组
+// 临时数组 todo
 func findRepeatNumber2(nums []int) int {
 	if len(nums) < 2 {
 		return 0
@@ -47,7 +47,7 @@ func findRepeatNumber2(nums []int) int {
 	return 0
 }
 
-// 下标归位法
+// 下标归位法 todo
 func findRepeatNumber3(nums []int) int {
 	if len(nums) < 2 {
 		return 0
