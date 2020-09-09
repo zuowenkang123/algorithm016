@@ -29,6 +29,9 @@ func threeSum(nums []int) [][]int {
 				for head < tail && nums[head] == nums[head+1] {
 					head++
 				}
+				for head < tail && nums[tail] == nums[tail-1] {
+					tail--
+				}
 				head++
 				tail--
 			} else if nums[head]+nums[tail]+nums[i] > 0 {
