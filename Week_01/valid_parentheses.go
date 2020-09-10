@@ -17,6 +17,7 @@ func isValid(s string) bool {
 		if _, ok := parentMap[str]; ok {
 			stackArr = append(stackArr, str)
 		} else {
+			// 数组小于0，或者数组不小于0，栈首数据不相等
 			if len(stackArr) <= 0 || parentMap[stackArr[len(stackArr)-1]] != str {
 				return false
 			}
