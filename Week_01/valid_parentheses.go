@@ -2,7 +2,35 @@ package Week_01
 
 // https://leetcode-cn.com/problems/valid-parentheses/
 // 2020-09-10
+
+// 数组直接模拟
 func isValid(s string) bool {
+	stackArr := make([]byte, 0)
+	parentMap := map[byte]byte{
+		'(': ')',
+		'[': ']',
+		'{': '}',
+	}
+	// for range得到的不一样，为int32
+	for i := 0; i < len(s); i++ {
+		str := s[i]
+		if _, ok := parentMap[str]; ok {
+			stackArr = append(stackArr, str)
+		} else {
+			if len(stackArr) <= 0 || parentMap[stackArr[len(stackArr)-1]] != str {
+				return false
+			}
+			// 出栈操作
+			stackArr = stackArr[:len(stackArr)-1]
+		}
+	}
+	if len(stackArr) > 0 {
+		return false
+	}
+	return true
+}
+
+func isValid1(s string) bool {
 	stack := Stack{}
 	parentMap := make(map[string]string)
 	parentMap[")"] = "("
