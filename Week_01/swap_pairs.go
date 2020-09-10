@@ -19,7 +19,7 @@ func swapPairs(head *ListNode) *ListNode {
 		second.Next = first
 		first.Next = tmp
 
-		pre = first // 这个地方得用first作为前置，因为经过上面交换这个变成了下一组的前置节点
+		pre = first // 这个地方得用first作为前置，因为经过上面交换这个变成了下一组的前置节点 移动
 	}
 	return dummy.Next
 }
