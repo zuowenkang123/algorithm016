@@ -46,21 +46,19 @@ func trap1(height []int) int {
 // 栈，
 func trap2(height []int) int {
 	ans := 0
-	cur := 0
 	stack := StackInt{}
-	for cur < len(height) {
-		for false == stack.IsEmpty() && height[cur] > height[stack.Top()] {
+	for i := 0; i < len(height); i++ {
+		for false == stack.IsEmpty() && height[i] > height[stack.Top()] {
 			top := stack.Top()
 			stack, _ = stack.Pop()
 			if stack.IsEmpty() {
 				break
 			}
-			distance := cur - stack.Top() - 1
-			bounded_height := min(height[cur], height[stack.Top()]) - height[top]
-			ans += distance * bounded_height
+			distance := i - stack.Top() - 1
+			boundedHeight := min(height[i], height[stack.Top()]) - height[top]
+			ans += distance * boundedHeight
 		}
-		stack = stack.Push(cur)
-		cur++
+		stack = stack.Push(i)
 	}
 	return ans
 }
