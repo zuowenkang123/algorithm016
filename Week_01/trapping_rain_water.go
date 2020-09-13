@@ -48,13 +48,17 @@ func trap2(height []int) int {
 	ans := 0
 	stack := StackInt{}
 	for i := 0; i < len(height); i++ {
+		// 上升则开始计算水面积
 		for false == stack.IsEmpty() && height[i] > height[stack.Top()] {
 			top := stack.Top()
+			// 弹出为了找到上上一个下降点进行对比
 			stack, _ = stack.Pop()
 			if stack.IsEmpty() {
 				break
 			}
+			// 当前到上上一个的下降点的举例
 			distance := i - stack.Top() - 1
+			// 当前和上上一个下降点与上一个下降点的差值
 			boundedHeight := min(height[i], height[stack.Top()]) - height[top]
 			ans += distance * boundedHeight
 		}
