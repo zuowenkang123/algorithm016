@@ -20,8 +20,31 @@ func trap(height []int) int {
 	return ans
 }
 
-// 双指针法
+// 动态编程
 func trap1(height []int) int {
+	if len(height) <= 2 {
+		return 0
+	}
+	ans := 0
+
+	leftMaxArr := make([]int, len(height), len(height))
+	rightMaxArr := make([]int, len(height), len(height))
+	leftMaxArr[0] = height[0]
+	for i := 1; i < len(height); i++ {
+		leftMaxArr[i] = max(height[i], leftMaxArr[i-1])
+	}
+	rightMaxArr[len(height)-1] = height[len(height)-1]
+	for i := len(height) - 2; i >= 0; i-- {
+		rightMaxArr[i] = max(height[i], rightMaxArr[i+1])
+	}
+	for i := 1; i < len(height)-1; i++ {
+		ans += min(leftMaxArr[i], rightMaxArr[i]) - height[i]
+	}
+	return ans
+}
+
+// 双指针法
+func trap3(height []int) int {
 	left := 0
 	right := len(height) - 1
 	left_max := 0
