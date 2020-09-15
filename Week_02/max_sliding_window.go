@@ -48,3 +48,5 @@ func maxSlidingWindow1(nums []int, k int) []int {
 	}
 	return res
 }
+
+// 双端扫描法
