@@ -7,7 +7,7 @@ import (
 	"container/list"
 )
 
-// 循环，判断是否超员，加入pk，加入，满则取头
+// 循环，判断是否超员，pk，加入，满则取头
 func maxSlidingWindow(nums []int, k int) []int {
 	dequeue := list.New()
 	resultArr := make([]int, 0, len(nums)-1)
