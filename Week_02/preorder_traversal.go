@@ -1,5 +1,8 @@
 package Week_02
 
+// https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+// 2020-09-16
+
 // 前序遍历
 func preorderTraversal(root *TreeNode) []int {
 	res := []int{}
