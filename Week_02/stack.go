@@ -43,3 +43,19 @@ func (s StackInt) Pop() (StackInt, int) {
 func (s StackInt) IsEmpty() bool {
 	return len(s) == 0
 }
+
+type StackTreeNode []*TreeNode
+
+func (s *StackTreeNode) Push(node *TreeNode) {
+	*s = append(*s, node)
+}
+
+func (s *StackTreeNode) Pop() *TreeNode {
+	n := []*TreeNode(*s)[len(*s)-1]
+	*s = []*TreeNode(*s)[:len(*s)-1]
+	return n
+}
+
+func (s StackTreeNode) IsEmpty() bool {
+	return len(s) == 0
+}
