@@ -31,7 +31,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 	return resultArr
 }
 
-// 暴力法
+// 暴力法，循环数组，内部比大小
 func maxSlidingWindow1(nums []int, k int) []int {
 	//边界条件判断
 	if len(nums) == 0 {
