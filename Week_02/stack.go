@@ -56,6 +56,11 @@ func (s *StackTreeNode) Pop() *TreeNode {
 	return n
 }
 
+func (s *StackTreeNode) Top() *TreeNode {
+	n := []*TreeNode(*s)[len(*s)-1]
+	return n
+}
+
 func (s StackTreeNode) IsEmpty() bool {
 	return len(s) == 0
 }

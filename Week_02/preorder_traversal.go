@@ -20,10 +20,10 @@ func preorderTraversal1(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
 	}
-	stack, rest := StackTreeNode([]*TreeNode{root}), []int{}
+	stack, res := StackTreeNode([]*TreeNode{root}), []int{}
 	for false == stack.IsEmpty() {
 		cur := stack.Pop()
-		rest = append(rest, cur.Val)
+		res = append(res, cur.Val)
 
 		if cur.Right != nil {
 			stack.Push(cur.Right)
@@ -32,5 +32,5 @@ func preorderTraversal1(root *TreeNode) []int {
 			stack.Push(cur.Left)
 		}
 	}
-	return rest
+	return res
 }
