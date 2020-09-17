@@ -41,7 +41,7 @@ func postorderTraversal1(root *TreeNode) []int {
 	return slice
 }
 
-// 栈
+// 栈，取头，右子树进栈，左子树进栈，为空当前取出，设置左右为空
 func postorderTraversal2(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
