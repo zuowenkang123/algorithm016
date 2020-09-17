@@ -31,6 +31,48 @@ func preorder(root *Node) []int {
 	return res
 }
 
-func levelOrder(root *Node) [][]int {
+var res [][]int
 
+// N叉树的层级遍历 层级map动态规划解法
+func levelOrder(root *Node) [][]int {
+	if root == nil {
+		return nil
+	}
+	res = [][]int{}
+	dfs(root, 0)
+	return res
+}
+
+func dfs(root *Node, level int) {
+	if root == nil {
+		return
+	}
+	if len(res) == level {
+		res = append(res, []int{})
+	}
+	res[level] = append(res[level], root.Val)
+	for _, n := range root.Children {
+		dfs(n, level+1)
+	}
+}
+
+// N叉树的层级遍历 广度优先算法
+func levelOrder1(root *Node) [][]int {
+	res := make([][]int, 0)
+	if root == nil {
+		return res
+	}
+
+	queue := NodeQueue{root}
+	for queue.size() > 0 {
+		levelArr := []int{}
+		size := queue.size()
+		for i := 0; i < size; i++ {
+			node := queue.pop()
+			levelArr = append(levelArr, node.Val)
+			queue.pushAll(node.Children)
+		}
+		res = append(res, levelArr)
+	}
+	return res
 }
