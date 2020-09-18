@@ -35,17 +35,17 @@ func getLeastNumbers1(arr []int, k int) []int {
 	if k == 0 || k > len(arr) {
 		return []int{}
 	}
-	h := &intHeap{}
+	h := &intMinHeap{}
 	heap.Init(h)
 	// 先全部加入
 	for _, v := range arr {
 		heap.Push(h, v)
 	}
 
-	res := []int{} // todo 此处有问题
-	//for i := 0; i < k; i++ {
-	//	res = append(res, heap.Pop(h).(int))
-	//}
+	res := []int{}
+	for i := 0; i < k; i++ {
+		res = append(res, heap.Pop(h).(int))
+	}
 	return res
 }
 
