@@ -4,5 +4,5 @@ package Week_02
 // 2020-09-17
 
 func nthUglyNumber(n int) int {
-
+	return 0
 }

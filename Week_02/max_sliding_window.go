@@ -50,3 +50,6 @@ func maxSlidingWindow1(nums []int, k int) []int {
 }
 
 // 双端扫描法
+func maxSlidingWindow2(nums []int, k int) []int {
+	return []int{}
+}

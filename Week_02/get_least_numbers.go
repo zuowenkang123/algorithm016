@@ -2,6 +2,9 @@ package Week_02
 
 import "container/heap"
 
+// https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
+// 2020-09-18
+
 // 堆
 func getLeastNumbers(arr []int, k int) []int {
 	if k == 0 || k > len(arr) {
@@ -27,13 +30,32 @@ func getLeastNumbers(arr []int, k int) []int {
 	return res
 }
 
-// 排序，取前k个
+// 堆, 循环写入优先队列，取前k
 func getLeastNumbers1(arr []int, k int) []int {
+	if k == 0 || k > len(arr) {
+		return []int{}
+	}
+	h := &intHeap{}
+	heap.Init(h)
+	// 先全部加入
+	for _, v := range arr {
+		heap.Push(h, v)
+	}
+
+	res := []int{} // todo 此处有问题
+	//for i := 0; i < k; i++ {
+	//	res = append(res, heap.Pop(h).(int))
+	//}
+	return res
+}
+
+// 排序，取前k个
+func getLeastNumbers2(arr []int, k int) []int {
 	return []int{}
 }
 
 // 快排
-func getLeastNumbers2(arr []int, k int) []int {
+func getLeastNumbers3(arr []int, k int) []int {
 	quikSort(arr, 0, len(arr)-1)
 	return arr[:k]
 }
