@@ -5,7 +5,7 @@ import "container/heap"
 // https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
 // 2020-09-18
 
-// 堆
+// 堆 求小数 大顶堆
 func getLeastNumbers(arr []int, k int) []int {
 	if k == 0 || k > len(arr) {
 		return []int{}
@@ -30,7 +30,9 @@ func getLeastNumbers(arr []int, k int) []int {
 	return res
 }
 
-// 堆, 循环写入优先队列，取前k
+// 堆, 取小数，小顶堆
+// 时间复杂度 O(nlogn)
+// 空间复杂度 O(n)
 func getLeastNumbers1(arr []int, k int) []int {
 	if k == 0 || k > len(arr) {
 		return []int{}
@@ -47,11 +49,6 @@ func getLeastNumbers1(arr []int, k int) []int {
 		res = append(res, heap.Pop(h).(int))
 	}
 	return res
-}
-
-// 排序，取前k个
-func getLeastNumbers2(arr []int, k int) []int {
-	return []int{}
 }
 
 // 快排
