@@ -10,7 +10,7 @@ func getLeastNumbers(arr []int, k int) []int {
 	if k == 0 || k > len(arr) {
 		return []int{}
 	}
-	h := &intHeap{}
+	h := &intMaxHeap{}
 	heap.Init(h)
 	for _, v := range arr {
 		if h.Len() < k {
