@@ -13,13 +13,9 @@ func getLeastNumbers(arr []int, k int) []int {
 	h := &intMaxHeap{}
 	heap.Init(h)
 	for _, v := range arr {
-		if h.Len() < k {
-			heap.Push(h, v)
-		} else {
-			if (*h)[0] > v {
-				heap.Pop(h)
-				heap.Push(h, v)
-			}
+		heap.Push(h, v)
+		if h.Len() > k {
+			heap.Pop(h)
 		}
 	}
 

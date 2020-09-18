@@ -7,7 +7,7 @@ func (h intMaxHeap) Len() int {
 }
 
 func (h intMaxHeap) Less(i, j int) bool {
-	return h[i] < h[j]
+	return h[i] > h[j]
 }
 
 func (h intMaxHeap) Swap(i, j int) {
