@@ -1,5 +1,25 @@
 package Week_02
 
+// https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/description/
+// N叉树的前序遍历
+func preorder(root *Node) []int {
+	res := []int{}
+
+	if root == nil {
+		return res
+	}
+
+	res = append(res, root.Val)
+	for _, v := range root.Children {
+		res = append(res, postorder(v)...)
+	}
+
+	return res
+}
+
+// https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/
+// 2020-09-17
+// n叉树的后续遍历
 func postorder(root *Node) []int {
 	res := []int{}
 
@@ -12,21 +32,6 @@ func postorder(root *Node) []int {
 	}
 
 	res = append(res, root.Val)
-
-	return res
-}
-
-func preorder(root *Node) []int {
-	res := []int{}
-
-	if root == nil {
-		return res
-	}
-
-	res = append(res, root.Val)
-	for _, v := range root.Children {
-		res = append(res, postorder(v)...)
-	}
 
 	return res
 }
