@@ -5,5 +5,5 @@ import (
 )
 
 func TestTopKFrequent(t *testing.T) {
-	topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)
+	topKFrequent1([]int{3, 0, 1, 0, 1}, 1)
 }

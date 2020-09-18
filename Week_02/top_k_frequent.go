@@ -3,7 +3,6 @@ package Week_02
 import (
 	"container/heap"
 	"math/rand"
-	"time"
 )
 
 // https://leetcode-cn.com/problems/top-k-frequent-elements/
@@ -34,43 +33,48 @@ func topKFrequent(nums []int, k int) []int {
 
 // 快排逻辑
 func topKFrequent1(nums []int, k int) []int {
-	occurrences := map[int]int{}
+	numMap := map[int]int{}
 	for _, num := range nums {
-		occurrences[num]++
+		numMap[num]++
 	}
-	values := [][]int{}
-	for key, value := range occurrences {
-		values = append(values, []int{key, value})
+	pairs := [][]int{}
+	for key, value := range numMap {
+		pairs = append(pairs, []int{key, value})
 	}
-	ret := make([]int, k)
-	qsort(values, 0, len(values)-1, ret, 0, k)
-	return ret
+	left := 0
+	right := len(pairs) - 1
+	index := k - 1
+	for left <= right {
+		pos := partitionPair(pairs, left, right)
+		if pos == index {
+			break
+		} else if index < pos {
+			left = pos + 1
+		} else {
+			right = pos - 1
+		}
+	}
+	res := make([]int, 0)
+	for i := len(pairs) - 1; i >= len(pairs)-k; i-- {
+		res = append(res, pairs[i][0])
+	}
+	return res
 }
 
-func qsort(values [][]int, start, end int, ret []int, retIndex, k int) {
-	rand.Seed(time.Now().UnixNano())
-	picked := rand.Int()%(end-start+1) + start
-	values[picked], values[start] = values[start], values[picked]
+func partitionPair(pair [][]int, left, right int) int {
+	randInt := rand.Int() % (right - left + 1)
+	pair[left], pair[randInt] = pair[randInt], pair[left]
+	pos := left
+	posValue := pair[left][1]
 
-	pivot := values[start][1]
-	index := start
-
-	for i := start + 1; i <= end; i++ {
-		if values[i][1] >= pivot {
-			values[index+1], values[i] = values[i], values[index+1]
-			index++
+	for i := left + 1; i <= right; i++ {
+		if pair[i][1] < posValue {
+			pos++
+			pair[i], pair[pos] = pair[pos], pair[i]
+		} else {
+			pair[left], pair[pos] = pair[pos], pair[left]
 		}
 	}
-	values[start], values[index] = values[index], values[start]
-	if k <= index-start {
-		qsort(values, start, index-1, ret, retIndex, k)
-	} else {
-		for i := start; i <= index; i++ {
-			ret[retIndex] = values[i][0]
-			retIndex++
-		}
-		if k > index-start+1 {
-			qsort(values, index+1, end, ret, retIndex, k-(index-start+1))
-		}
-	}
+
+	return pos
 }
