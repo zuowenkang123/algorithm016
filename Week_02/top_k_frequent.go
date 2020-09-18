@@ -14,6 +14,7 @@ func topKFrequent(nums []int, k int) []int {
 	}
 	h := &IHeap{}
 	heap.Init(h)
+	// 大顶堆
 	for key, value := range numMap {
 		heap.Push(h, [2]int{key, value})
 		if h.Len() > k {
@@ -21,6 +22,7 @@ func topKFrequent(nums []int, k int) []int {
 		}
 	}
 	ret := make([]int, k)
+	// 正序排列
 	for i := 0; i < k; i++ {
 		ret[k-i-1] = heap.Pop(h).([2]int)[0]
 	}
