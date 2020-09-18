@@ -66,9 +66,7 @@ func (h *IHeap) Push(x interface{}) {
 }
 
 func (h *IHeap) Pop() interface{} {
-	old := *h
-	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
+	res := (*h)[len(*h)-1]
+	*h = (*h)[:len(*h)-1]
+	return res
 }
