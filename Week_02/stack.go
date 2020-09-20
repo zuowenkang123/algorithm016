@@ -1,5 +1,6 @@
 package Week_02
 
+// 字符串栈
 type Stack []string
 
 func (s Stack) Push(v string) Stack {
@@ -18,32 +19,32 @@ func (s Stack) IsEmpty() bool {
 	return len(s) == 0
 }
 
+// int栈
 type StackInt []int
 
-func (s StackInt) Push(v int) StackInt {
-	return append(s, v)
+func (s *StackInt) Push(v int) {
+	*s = append(*s, v)
 }
 
-func (s StackInt) Top() int {
-	l := len(s)
+func (s *StackInt) Top() int {
+	l := len(*s)
 	if l == 0 {
 		return 0
 	}
-	return s[l-1]
+	return (*s)[l-1]
 }
 
-func (s StackInt) Pop() (StackInt, int) {
-	l := len(s)
-	if l == 0 {
-		return s, 0
-	}
-	return s[:l-1], s[l-1]
+func (s *StackInt) Pop() int {
+	n := (*s)[len(*s)-1]
+	*s = (*s)[:len(*s)-1]
+	return n
 }
 
-func (s StackInt) IsEmpty() bool {
-	return len(s) == 0
+func (s *StackInt) IsEmpty() bool {
+	return len(*s) == 0
 }
 
+// 树栈
 type StackTreeNode []*TreeNode
 
 func (s *StackTreeNode) Push(node *TreeNode) {
