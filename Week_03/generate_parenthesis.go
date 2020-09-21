@@ -35,3 +35,24 @@ func generate_parenthesis(left, right, n int, str string) {
 	return
 
 }
+
+// 先判断后处理
+func generate_parenthesis1(left, right, n int, str string) {
+	if left < n || right > left {
+		return
+	}
+	// termination
+	//if left == n && right == n {
+	if left+right == 2*n {
+		res = append(res, str)
+		return
+	}
+
+	// process
+	// drill down
+	generate_parenthesis(left+1, right, n, str+"(")
+	generate_parenthesis(left, right+1, n, str+")")
+	// reverse
+
+	return
+}
