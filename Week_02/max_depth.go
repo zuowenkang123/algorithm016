@@ -48,19 +48,19 @@ func maxDepth2(root *TreeNode) int {
 	queue.push(root)
 	depth := 0
 	for queue.size() > 0 {
+		depth++
 		size := queue.size()
 		// pop出当前层数据
 		for size > 0 {
 			node := queue.pop()
+			size--
 			if node.Left != nil {
 				queue.push(node.Left)
 			}
 			if node.Right != nil {
 				queue.push(node.Right)
 			}
-			size--
 		}
-		depth++
 	}
 	return depth
 }

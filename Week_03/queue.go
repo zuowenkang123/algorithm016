@@ -29,3 +29,11 @@ func (q *TreeNodeQueue) pushAll(nodes []*TreeNode) bool {
 	*q = append(*q, nodes...)
 	return true
 }
+
+func (q *TreeNodeQueue) top() *TreeNode {
+	if len(*q) == 0 {
+		return nil
+	}
+	first := []*TreeNode(*q)[0]
+	return first
+}
