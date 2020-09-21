@@ -41,18 +41,45 @@ func generate_parenthesis1(left, right, n int, str string) {
 	if left < n || right > left {
 		return
 	}
-	// termination
 	//if left == n && right == n {
 	if left+right == 2*n {
 		res = append(res, str)
 		return
 	}
 
-	// process
-	// drill down
 	generate_parenthesis(left+1, right, n, str+"(")
 	generate_parenthesis(left, right+1, n, str+")")
-	// reverse
+
+	return
+}
+
+// 减少法
+func generateParenthesis1(n int) []string {
+	res = make([]string, 0, 2*n)
+	if n == 0 {
+		return res
+	}
+	// 还剩多少个括号
+	dfs(n, n, "")
+	return res
+}
+
+// 先判断后处理
+func dfs(left, right int, str string) {
+	if left > right {
+		return
+	}
+	if left == 0 && right == 0 {
+		res = append(res, str)
+		return
+	}
+	if left > 0 {
+		dfs(left-1, right, str+"(")
+	}
+
+	if right > 0 {
+		dfs(left, right-1, str+")")
+	}
 
 	return
 }
