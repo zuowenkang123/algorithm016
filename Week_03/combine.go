@@ -46,7 +46,7 @@ func dfs1(n, k, start int, arr []int) {
 		arr = append(arr, i)
 		// 装入当前后，下一层k-1,i+1
 		dfs1(n, k-1, i+1, arr)
-		// 尝试装完后，回溯处理上一层
+		// 尝试装完后，回溯处理上一层 https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
 		arr = arr[:len(arr)-1]
 	}
 }
