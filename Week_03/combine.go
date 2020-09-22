@@ -35,7 +35,10 @@ func combine1(n int, k int) [][]int {
 
 func dfs1(n, k, start int, arr []int) {
 	if k == 0 {
-		resInt = append(resInt, arr)
+		// 需要copy
+		comb := make([]int, len(arr))
+		copy(comb, arr)
+		resInt = append(resInt, comb)
 		return
 	}
 	for i := start; i <= n-k+1; i++ {
