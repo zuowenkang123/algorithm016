@@ -5,10 +5,12 @@ package Week_03
 
 // 递归
 // 最小在于自底向上，找的的第一个就是最小公共祖先
+// 左右子树寻找p或q，找到上报父节点。
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
+	// 找到则返回当前
 	if root.Val == p.Val || root.Val == q.Val {
 		return root
 	}
