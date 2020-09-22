@@ -33,6 +33,7 @@ func combine1(n int, k int) [][]int {
 	return resInt
 }
 
+// 从start开始，直到k用完
 func dfs1(n, k, start int, arr []int) {
 	if k == 0 {
 		// 需要copy
@@ -43,7 +44,9 @@ func dfs1(n, k, start int, arr []int) {
 	}
 	for i := start; i <= n-k+1; i++ {
 		arr = append(arr, i)
+		// 装入当前后，下一层k-1,i+1
 		dfs1(n, k-1, i+1, arr)
+		// 尝试装完后，回溯处理上一层
 		arr = arr[:len(arr)-1]
 	}
 }
