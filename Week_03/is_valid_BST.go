@@ -12,6 +12,7 @@ func isValidBST(root *TreeNode) bool {
 
 }
 
+// 递归，当前的值如果不符合，则所有都不符合，同时判断左右子树。
 func is_valid_BST(root *TreeNode, lower, upper int) bool {
 	if root == nil {
 		return true
