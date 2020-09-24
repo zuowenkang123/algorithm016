@@ -47,13 +47,13 @@ func backtrack1(nums []int, path []int) {
 		return
 	}
 	for i := 0; i < len(nums); i++ {
-		if !used[i] {
-			used[i] = true
-			path = append(path, nums[i])
-			backtrack1(nums, path)
-			used[i] = false
-			path = path[:len(path)-1]
+		if used[i] {
+			continue
 		}
-
+		used[i] = true
+		path = append(path, nums[i])
+		backtrack1(nums, path)
+		used[i] = false
+		path = path[:len(path)-1]
 	}
 }
