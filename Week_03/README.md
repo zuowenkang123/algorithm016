@@ -1,6 +1,27 @@
 学习笔记
 
-1.括号生成：转换成左右括号匹配问题，然后递归解决      
+1.括号生成：转换成左右括号匹配问题，然后递归解决    
+```
+【递归】
+// termination
+if left == n && right == n {
+    res = append(res, str)
+    return
+}
+
+// process
+// drill down
+if left < n {
+    generate_parenthesis(left+1, right, n, str+"(")
+}
+if right < left {
+    generate_parenthesis(left, right+1, n, str+")")
+}
+// reverse
+
+return
+```
+	  
 2.反转二叉树：1）递归 终止条件 处理+下沉 2）迭代 起始装入根，非空循环，弹出处理，非空入列，空结束。 
 ```
 【bfs】
@@ -24,7 +45,24 @@ for queue.size() != 0 {
     }
 } 
 ```  
-3.最小深度 1）递归 4中情况的处理 2）广度搜索     
+3.最小深度 1）递归 4中情况的处理 2）深度搜索     
+```
+【dfs】
+if k == 0 {
+    // 需要copy
+    comb := make([]int, len(arr))
+    copy(comb, arr)
+    resInt = append(resInt, comb)
+    return
+}
+for i := start; i <= n-k+1; i++ {
+    arr = append(arr, i)
+    // 装入当前后，下一层k-1,i+1
+    dfs1(n, k-1, i+1, arr)
+    // 尝试装完后，回溯处理上一层 https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
+    arr = arr[:len(arr)-1] // 当前回溯，所有都在回溯
+}
+```
 4.替换空格 循环字符串，替换    
 5.生成树：inorder决定左右子树位置，preorder决定root位置。  
 6.验证二叉树：预留树中最大和最小，然后递归左右子树    
