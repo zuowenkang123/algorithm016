@@ -1,7 +1,29 @@
 学习笔记
 
 1.括号生成：转换成左右括号匹配问题，然后递归解决      
-2.反转二叉树：1）递归 终止条件 处理+下沉 2）迭代 起始装入根，非空循环，弹出处理，非空入列，空结束。    
+2.反转二叉树：1）递归 终止条件 处理+下沉 2）迭代 起始装入根，非空循环，弹出处理，非空入列，空结束。 
+```
+【bfs】
+if root == nil {
+    return nil
+}
+queue := TreeNodeQueue{}
+// 加入初始值，开始非空循环
+queue.push(root)
+for queue.size() != 0 {
+    // 弹出处理
+    node := queue.pop()
+    // 交换
+    node.Left, node.Right = node.Right, node.Left
+    // 非空入列
+    if node.Left != nil {
+        queue.push(node.Left)
+    }
+    if node.Right != nil {
+        queue.push(node.Right)
+    }
+} 
+```  
 3.最小深度 1）递归 4中情况的处理 2）广度搜索     
 4.替换空格 循环字符串，替换    
 5.生成树：inorder决定左右子树位置，preorder决定root位置。  
@@ -24,4 +46,5 @@ func backtrack(路径，选择列表) {
        撤销选择
    }
 }
+```
 11.重复全排列，排序，剪枝
