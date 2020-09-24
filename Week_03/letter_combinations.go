@@ -15,27 +15,25 @@ var phoneMap map[string]string = map[string]string{
 }
 
 var combinations []string
-var combination string
 
 func letterCombinations(digits string) []string {
 	if len(digits) == 0 {
 		return []string{}
 	}
 	combinations = []string{}
-	combination = ""
-	backtracketterCombinations(digits, 0)
+	backtracketterCombinations(digits, 0, "")
 	return combinations
 }
 
-func backtracketterCombinations(digits string, index int) {
+func backtracketterCombinations(digits string, index int, combination string) {
 	if index == len(digits) {
 		combinations = append(combinations, combination)
 		return
 	}
 	digit := string(digits[index])
 	letters := phoneMap[digit]
-	for i := 0; i < len(letters); i++ {
-		combination += string(letters[i])
-		backtracketterCombinations(digits, index+1)
+	lettersCount := len(letters)
+	for i := 0; i < lettersCount; i++ {
+		backtracketterCombinations(digits, index+1, combination+string(letters[i]))
 	}
 }
