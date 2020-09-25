@@ -1,5 +1,20 @@
 学习笔记  
 1.爬楼梯是一个典型的递归处理问题。这种问题一般分为三步：1.初始化数据 2.缓存处理 3.递归逻辑  
+```
+【递归模板】
+public void recur(int level, int param) {
+     // terminator
+     if (level > MAX_LEVEL) {
+       // process result
+        return; 
+     }
+     // process current logic
+     process(level, param);
+     // drill down
+     recur( level: level + 1, newParam);
+     // restore current status
+}
+```
 2.盛最多水是相对双指针处理问题。如何证明是其核心，简单理解就是相对而言矮的移动收益更大。    
 3.移动零是同向双指针处理问题。简化为扫描一遍，交换0到后面。    
 4.加一是一个数学问题，处理取余和除数的问题。  
