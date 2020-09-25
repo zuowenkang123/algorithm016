@@ -9,9 +9,9 @@ func minDepth(root *TreeNode) int {
 	dl := minDepth(root.Left)
 	dr := minDepth(root.Right)
 
-	if root.Left == nil { // 右子树不为空
+	if root.Right != nil && root.Left == nil { // 右子树不为空
 		return dr + 1
-	} else if root.Right == nil { // 左子树不为空
+	} else if root.Left != nil && root.Right == nil { // 左子树不为空
 		return dl + 1
 	} else { // 都不为空
 		return min(dl, dr) + 1
