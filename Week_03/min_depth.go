@@ -1,5 +1,7 @@
 package Week_03
 
+// https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
+// 2020-09-21
 // 递归 最小高度为当前+左右子树最小高度
 // 4种情况
 func minDepth(root *TreeNode) int {
