@@ -86,3 +86,22 @@ func backtrack(路径，选择列表) {
 }
 ```
 11.重复全排列，排序，剪枝
+
+```
+【分治模板】
+func divide_conquer(Problem problem, ) {
+
+if (problem == nil) {
+    res = process_last_result();
+    return res
+}
+subProblems = split_problem(problem)
+
+res0 := divide_conquer(subProblems[0])
+res1 := divide_conquer(subProblems[1])
+
+result = process_result(res0, res1)
+
+return result
+}
+```
