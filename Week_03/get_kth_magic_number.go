@@ -3,6 +3,7 @@ package Week_03
 // https://leetcode-cn.com/problems/get-kth-magic-number-lcci/
 // 2020-09-27
 
+// 迭代的方式
 func getKthMagicNumber(k int) int {
 	if k <= 0 {
 		return -1
