@@ -5,7 +5,7 @@ import "math"
 // https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/
 // 2020-09-28
 
-//
+// 采用广度优先，行处理模板
 func largestValues(root *TreeNode) []int {
 	res := make([]int, 0)
 	if root == nil {
