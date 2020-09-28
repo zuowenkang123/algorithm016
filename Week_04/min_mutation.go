@@ -6,15 +6,17 @@ import (
 
 // https://leetcode-cn.com/problems/minimum-genetic-mutation/
 // 2020-09-28
+var minChange int
 
 func minMutation(start string, end string, bank []string) int {
-
+	minChange = math.MaxInt32
 	dfsMinMutation(start, end, bank, 0)
+	if minChange == math.MaxInt32 {
+		return -1
+	}
 	return minChange
 
 }
-
-var minChange int = math.MaxInt32
 
 func dfsMinMutation(start, end string, bank []string, change int) {
 	if start == end {
