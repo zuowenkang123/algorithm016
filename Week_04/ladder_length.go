@@ -31,29 +31,6 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 	return 0
 }
 
-// 一步达到
-func oneDiff(a, b string) bool {
-	diff := 0
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
-			diff++
-		}
-		if diff > 1 {
-			return false
-		}
-	}
-	return true
-}
-
-func indexOf(str string, bank []string) int {
-	for i, s := range bank {
-		if str == s {
-			return i
-		}
-	}
-	return -1
-}
-
 var minChange1 int
 
 // 同最小基因, 超时，由于wordList长度比较大
