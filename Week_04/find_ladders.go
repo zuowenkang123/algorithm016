@@ -80,7 +80,7 @@ func findLadders1(beginWord string, endWord string, wordList []string) [][]strin
 	for len(queue) > 0 {
 		l := len(queue)
 		arr := make([]string, 0)
-		arr = append(arr, queue[i])
+		arr = append(arr, queue[0])
 		for i := 0; i < l; i++ {
 			if queue[i] == endWord {
 				res = append(res, arr)
