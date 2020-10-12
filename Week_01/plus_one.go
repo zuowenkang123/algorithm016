@@ -1,10 +1,11 @@
 package Week_01
 
+// https://leetcode-cn.com/problems/plus-one/
 // 2020-09-08
-// 暴力法，最后处理进位的问题
-
+// 不产生进位直接返回，产生进位才会继续循环。对于一直循环的处理进位问题
 func plusOne(digits []int) []int {
 	for i := len(digits) - 1; i >= 0; i-- {
+		// 隐藏默认进位只能为1
 		digits[i]++
 		digits[i] = digits[i] % 10
 		// 只有9才会为0，因为是加1

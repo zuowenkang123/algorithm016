@@ -8,6 +8,7 @@ func moveZeroes(nums []int) {
 	if len(nums) == 0 {
 		return
 	}
+	// 被填充的位置
 	pos := 0
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != 0 {

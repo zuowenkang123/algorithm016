@@ -4,6 +4,7 @@ package Week_01
 // 2020-09-12
 
 // 核心在于两个链表循环 O(m+n) O(1)
+// 先处理都不为空的情况，在处理各自为空的情况
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	head := &ListNode{}
 	head.Next = l1

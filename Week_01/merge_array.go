@@ -4,6 +4,7 @@ package Week_01
 // 2020-09-13
 
 // 安排法，每个位置肯定需要有人坐。
+// 分为4中情况，具体如下 i<0 j<0 num1<num2 num1>=num2
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	i := m - 1
 	j := n - 1
@@ -25,6 +26,7 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 }
 
 // 放置加和法
+// 另一种方式是，先处理都不为空的情况，然后处理短的情况
 func merge1(nums1 []int, m int, nums2 []int, n int) {
 	i := m - 1
 	j := n - 1
