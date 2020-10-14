@@ -3,7 +3,7 @@ package Week_01
 // https://leetcode-cn.com/problems/container-with-most-water/
 // 2020-09-07
 
-// 双向指针
+// 双向指针，左右移动得到的底是相同的，因此小的寻求更大的机会
 func maxArea(height []int) int {
 	if len(height) < 2 {
 		return 0
@@ -13,6 +13,7 @@ func maxArea(height []int) int {
 	res := 0
 	for begin < end {
 		res = max(res, (end-begin)*min(height[begin], height[end]))
+		// 左右移动得到的底是相同的，因此小的寻求更大的机会
 		if height[begin] > height[end] {
 			end--
 		} else {

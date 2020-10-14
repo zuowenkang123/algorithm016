@@ -40,4 +40,35 @@ return dp[len(text1)][len(text2)]
 ````
 4.不同路径，核心在于两边为固定，递推中间   
 5.有障碍的不同路径  
-6.搜索二维矩阵：二分法
+6.搜索二维矩阵：二分法  
+7.零钱兑换  
+8.三角形最短路径：dp  
+9.乘积最大子数组   
+10.打家劫舍：dp 先得到0和1的情况，然后循环2到len-1 .团灭链接：https://labuladong.gitbook.io/algo/
+````
+【dp】
+if len(nums) == 0 {
+    return 0
+}
+if len(nums) == 1 {
+    return nums[0]
+}
+dp := make([]int, len(nums))
+dp[0] = nums[0]
+dp[1] = max(nums[0], nums[1])
+
+for i := 2; i < len(nums); i++ {
+    dp[i] = max(dp[i-2]+nums[i], dp[i-1])
+}
+return dp[len(nums)-1]
+````
+11.打家劫舍二：拆解为包含头或包含尾。采用空间优化方式。
+````
+【空间优化，适用于比较最优】
+cur, pre := 0, 0
+	for _, v := range nums {
+		cur, pre = max(pre+v, cur), cur
+	}
+	return cur
+````
+12.最小路径和：dp 先填充边
