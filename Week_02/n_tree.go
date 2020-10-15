@@ -10,6 +10,7 @@ func preorder(root *Node) []int {
 	}
 
 	res = append(res, root.Val)
+	// 充分体现了左右子树
 	for _, v := range root.Children {
 		res = append(res, postorder(v)...)
 	}
