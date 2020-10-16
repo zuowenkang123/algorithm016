@@ -1,6 +1,9 @@
 package Week_01
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 // https://leetcode-cn.com/problems/reverse-integer/
 // 2020-10-14
@@ -60,5 +63,6 @@ func reverseInt1(arrList [][]int) map[int][]int {
 			}
 		}
 	}
+	fmt.Println(arrMap)
 	return arrMap
 }
