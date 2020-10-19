@@ -50,7 +50,7 @@ func twoSum(nums []int, target int) []int {
 	return indexArr
 }
 
-// 反向map法
+// 反向map法 O(n) O(n)
 func twoSum1(nums []int, target int) []int {
 	numMap := make(map[int]int)
 	for i, num := range nums {
