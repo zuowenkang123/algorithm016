@@ -1,5 +1,8 @@
 package Week_07
 
+// https://leetcode-cn.com/problems/relative-sort-array/
+// 2020-10-31
+
 func relativeSortArray(arr1 []int, arr2 []int) []int {
 	res := make([]int, len(arr1), len(arr1))
 
