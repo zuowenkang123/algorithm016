@@ -9,5 +9,5 @@ func TestReverseInt(t *testing.T) {
 }
 
 func TestReverseInt1(t *testing.T) {
-	reverseInt1([][]int{{1, 2, 3, 4}, {2, 10, 22, 0}, {2, 0, 0, 0}, {1, 2, 3, 0}})
+	reverseInt1([][]int{{1, 2, 3, 4}, {2, 10, 22, 0}, {2, 0, 0, 0}, {1, 2, 3, 0}, {1, 3, 6, 9}, {3, 4, 5, 6}})
 }
