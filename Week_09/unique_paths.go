@@ -40,6 +40,7 @@ func uniquePaths1(m int, n int) int {
 	}
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
+			// 每一步都是新的路径
 			dp[j] += dp[j-1]
 		}
 	}
