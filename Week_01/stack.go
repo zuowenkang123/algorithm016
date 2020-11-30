@@ -2,44 +2,48 @@ package Week_01
 
 type Stack []string
 
-func (s Stack) Push(v string) Stack {
-	return append(s, v)
+func (s *Stack) Push(v string) {
+	*s = append(*s, v)
 }
 
-func (s Stack) Pop() (Stack, string) {
-	l := len(s)
+func (s *Stack) Pop() string {
+	l := len(*s)
 	if l == 0 {
-		return s, ""
+		return ""
 	}
-	return s[:l-1], s[l-1]
+	str := (*s)[l-1]
+	*s = (*s)[:l-1]
+	return str
 }
 
-func (s Stack) IsEmpty() bool {
-	return len(s) == 0
+func (s *Stack) IsEmpty() bool {
+	return len(*s) == 0
 }
 
 type StackInt []int
 
-func (s StackInt) Push(v int) StackInt {
-	return append(s, v)
+func (s *StackInt) Push(v int) {
+	*s = append(*s, v)
 }
 
-func (s StackInt) Top() int {
-	l := len(s)
+func (s *StackInt) Top() int {
+	l := len(*s)
 	if l == 0 {
 		return 0
 	}
-	return s[l-1]
+	return (*s)[l-1]
 }
 
-func (s StackInt) Pop() (StackInt, int) {
-	l := len(s)
+func (s *StackInt) Pop() int {
+	l := len(*s)
 	if l == 0 {
-		return s, 0
+		return 0
 	}
-	return s[:l-1], s[l-1]
+	n := (*s)[l-1]
+	*s = (*s)[:l-1]
+	return n
 }
 
-func (s StackInt) IsEmpty() bool {
-	return len(s) == 0
+func (s *StackInt) IsEmpty() bool {
+	return len(*s) == 0
 }

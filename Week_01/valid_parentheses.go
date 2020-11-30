@@ -37,16 +37,15 @@ func isValid1(s string) bool {
 	parentMap[")"] = "("
 	parentMap["]"] = "["
 	parentMap["}"] = "{"
-	var top string
 	for _, val := range s {
 		str := string(rune(val))
 		if str == "(" || str == "[" || str == "{" {
-			stack = stack.Push(str)
+			stack.Push(str)
 		} else {
 			if _, ok := parentMap[str]; !ok {
 				return false
 			}
-			stack, top = stack.Pop()
+			top := stack.Pop()
 			if top != parentMap[str] {
 				return false
 			}

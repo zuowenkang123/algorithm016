@@ -11,14 +11,13 @@ func swapPairs(head *ListNode) *ListNode {
 	for pre.Next != nil && pre.Next.Next != nil {
 		first := pre.Next
 		second := pre.Next.Next
-
-		// 交换逻辑，先保存后路，然后看出路
-		// 简化为pre.Next, second.Next, first.Next = second, first, second.Next
-		tmp := second.Next
+		// 前面连接
 		pre.Next = second
+		// 简化为second.Next, first.Next = first, second.Next
+		tmp := second.Next
 		second.Next = first
 		first.Next = tmp
-
+		// 移动
 		pre = first // 这个地方得用first作为前置，因为经过上面交换这个变成了下一组的前置节点 移动
 	}
 	return dummy.Next

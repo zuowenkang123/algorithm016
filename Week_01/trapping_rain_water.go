@@ -43,7 +43,7 @@ func trap1(height []int) int {
 	return ans
 }
 
-// 栈，
+// 栈
 func trap2(height []int) int {
 	ans := 0
 	stack := StackInt{}
@@ -52,7 +52,7 @@ func trap2(height []int) int {
 		for false == stack.IsEmpty() && height[i] > height[stack.Top()] {
 			top := stack.Top()
 			// 弹出为了找到上上一个下降点进行对比
-			stack, _ = stack.Pop()
+			stack.Pop()
 			if stack.IsEmpty() {
 				break
 			}
@@ -62,7 +62,7 @@ func trap2(height []int) int {
 			boundedHeight := min(height[i], height[stack.Top()]) - height[top]
 			ans += distance * boundedHeight
 		}
-		stack = stack.Push(i)
+		stack.Push(i)
 	}
 	return ans
 }
