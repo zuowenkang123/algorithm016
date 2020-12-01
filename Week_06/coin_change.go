@@ -11,10 +11,10 @@ func coinChange(coins []int, amount int) int {
 	}
 	dp[0] = 0
 	for i := 1; i <= amount; i++ {
-		for j := 0; j < len(coins); j++ {
-			if coins[j] <= i && dp[i-coins[j]] != -1 {
-				if dp[i] == -1 || dp[i] > dp[i-coins[j]]+1 {
-					dp[i] = dp[i-coins[j]] + 1
+		for _, coin := range coins {
+			if coin <= i && dp[i-coin] != -1 {
+				if dp[i] == -1 || dp[i] > dp[i-coin]+1 {
+					dp[i] = dp[i-coin] + 1
 				}
 			}
 		}
