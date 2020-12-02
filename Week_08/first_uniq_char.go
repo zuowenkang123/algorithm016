@@ -22,7 +22,7 @@ func firstUniqChar1(s string) int {
 	for i, k := range s {
 		arr[k-'a'] = i
 	}
-	// 前面有会错乱该值，如果没有就不会错乱就对应上了
+	// 后面有则i会被后面覆盖
 	for i, k := range s {
 		if i == arr[k-'a'] {
 			return i
