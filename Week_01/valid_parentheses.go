@@ -56,3 +56,31 @@ func isValid1(s string) bool {
 	}
 	return true
 }
+
+var parentMap = map[int32]int32{
+	'(': ')',
+	'[': ']',
+	'{': '}',
+}
+
+func isValid2(s string) bool {
+	stackArr := make([]int32, 0)
+	for _, v := range s {
+		// 左括号入栈
+		if _, ok := parentMap[v]; ok {
+			stackArr = append(stackArr, v)
+		} else {
+			// 不符合返回
+			if len(stackArr) == 0 || v != parentMap[stackArr[len(stackArr)-1]] {
+				return false
+			}
+			// 匹配到出栈
+			stackArr = stackArr[:len(stackArr)-1]
+		}
+	}
+	// 剩余数据
+	if len(stackArr) > 0 {
+		return false
+	}
+	return true
+}

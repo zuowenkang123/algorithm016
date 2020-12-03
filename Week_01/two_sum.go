@@ -62,3 +62,17 @@ func twoSum1(nums []int, target int) []int {
 	}
 	return []int{}
 }
+
+func twoSum2(nums []int, target int) []int {
+	sumMap := make(map[int]int, 0)
+	for i, v := range nums {
+		sumMap[target-v] = i
+	}
+	for i, v := range nums {
+		ind, ok := sumMap[v]
+		if ok && i != ind {
+			return []int{i, sumMap[v]}
+		}
+	}
+	return []int{}
+}
