@@ -7,6 +7,8 @@ import (
 
 // https://leetcode-cn.com/problems/word-pattern/
 // 2020-12-03
+
+// 将规律转换为数字类型
 func wordPattern(pattern string, str string) bool {
 	p := strings.Split(pattern, "")
 	s := strings.Split(str, " ")
