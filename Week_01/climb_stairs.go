@@ -25,7 +25,7 @@ func climbStairs(n int) int {
 // 动态规划,递推解法，数组填入法
 func climbStairsDp(n int) int {
 	if n == 0 || n == 1 {
-		return 1
+		return n
 	}
 	dp := make([]int, n)
 	// 初始数据
