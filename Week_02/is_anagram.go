@@ -8,21 +8,16 @@ func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
-	strMap := make(map[byte]int)
-	for i, _ := range s {
-		if _, ok := strMap[s[i]]; ok {
-			strMap[s[i]]++
-		} else {
-			strMap[s[i]] = 1
-		}
+	strMap := make(map[int32]int)
+	for _, v := range s {
+		strMap[v]++
 	}
-	for j, _ := range t {
-		_, ok := strMap[t[j]]
-		if ok && strMap[t[j]] != 0 {
-			strMap[t[j]]--
-			continue
+	for _, v := range t {
+		val, ok := strMap[v]
+		if !ok || val == 0 {
+			return false
 		}
-		return false
+		strMap[v]--
 	}
 	return true
 }
