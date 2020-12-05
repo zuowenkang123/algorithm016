@@ -6,7 +6,7 @@ import "strconv"
 // 2020-09-17
 
 func fizzBuzz(n int) []string {
-	strArr := make([]string, 0)
+	res := make([]string, 0)
 	for i := 1; i <= n; i++ {
 		str := ""
 		if i%3 != 0 && i%5 != 0 {
@@ -19,7 +19,7 @@ func fizzBuzz(n int) []string {
 			str += "Buzz"
 		}
 
-		strArr = append(strArr, str)
+		res = append(res, str)
 	}
-	return strArr
+	return res
 }
