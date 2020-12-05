@@ -19,10 +19,10 @@ func postorderTraversal(root *TreeNode) []int {
 // 栈
 func postorderTraversal1(root *TreeNode) []int {
 	if root == nil {
-		return nil
+		return []int{}
 	}
 	stack := []*TreeNode{root}
-	slice := make([]int, 0)
+	res := make([]int, 0)
 	for len(stack) > 0 {
 		root := stack[len(stack)-1]
 		if root.Right != nil {
@@ -33,12 +33,12 @@ func postorderTraversal1(root *TreeNode) []int {
 		}
 		if root.Left == nil && root.Right == nil {
 			stack = stack[:len(stack)-1]
-			slice = append(slice, root.Val)
+			res = append(res, root.Val)
 		}
 		root.Left = nil
 		root.Right = nil
 	}
-	return slice
+	return res
 }
 
 // 栈，取头，右子树进栈，左子树进栈，为空当前取出，设置左右为空
