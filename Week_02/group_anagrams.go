@@ -33,13 +33,13 @@ func groupAnagrams(strs []string) [][]string {
 func groupAnagrams1(strs []string) [][]string {
 	strMap := make(map[string][]string)
 	for _, str := range strs {
-		keyArr := make([]int, 26, 26)
-		for i := 0; i < len(str); i++ {
-			keyArr[rune(str[i])-'a']++
+		keyArr := make([]byte, 26, 26)
+		for _, v := range str {
+			keyArr[v-'a']++
 		}
 		keyStr := ""
-		for _, key := range keyArr {
-			keyStr = fmt.Sprintf("%s%d#", keyStr, key)
+		for _, val := range keyArr {
+			keyStr = fmt.Sprintf("%s%d#", keyStr, val)
 		}
 		if _, ok := strMap[keyStr]; !ok {
 			strMap[keyStr] = []string{str}
