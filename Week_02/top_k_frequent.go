@@ -23,12 +23,12 @@ func topKFrequent(nums []int, k int) []int {
 			heap.Pop(h)
 		}
 	}
-	ret := make([]int, h.Len())
+	res := make([]int, h.Len())
 	// 正序排列
 	for i := 0; i < k; i++ {
-		ret[i] = heap.Pop(h).([2]int)[0]
+		res[i] = heap.Pop(h).([2]int)[0]
 	}
-	return ret
+	return res
 }
 
 // 快排逻辑

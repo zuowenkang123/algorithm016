@@ -10,7 +10,7 @@ import (
 // 循环，判断是否超员，pk，加入，满则取头
 func maxSlidingWindow(nums []int, k int) []int {
 	dequeue := list.New()
-	resultArr := make([]int, 0, len(nums)-1)
+	res := make([]int, 0, len(nums)-1)
 	for i := 0; i < len(nums); i++ {
 		// 超员则删除老大
 		if dequeue.Len() > 0 && i-k >= dequeue.Front().Value.(int) {
@@ -25,10 +25,10 @@ func maxSlidingWindow(nums []int, k int) []int {
 
 		// 满员后，一直给出老大
 		if i >= k-1 {
-			resultArr = append(resultArr, nums[dequeue.Front().Value.(int)])
+			res = append(res, nums[dequeue.Front().Value.(int)])
 		}
 	}
-	return resultArr
+	return res
 }
 
 // 暴力法，循环数组，内部比大小

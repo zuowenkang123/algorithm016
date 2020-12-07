@@ -19,11 +19,11 @@ func maxDepth1(root *TreeNode) int {
 	}
 	queue := []*TreeNode{}
 	queue = append(queue, root)
-	ans := 0
+	res := 0
 	for len(queue) > 0 {
-		sz := len(queue)
+		size := len(queue)
 		// pop出当前层数据
-		for sz > 0 {
+		for size > 0 {
 			node := queue[0]
 			queue = queue[1:]
 			if node.Left != nil {
@@ -32,11 +32,11 @@ func maxDepth1(root *TreeNode) int {
 			if node.Right != nil {
 				queue = append(queue, node.Right)
 			}
-			sz--
+			size--
 		}
-		ans++
+		res++
 	}
-	return ans
+	return res
 }
 
 // 与广度优先不同，需要在装入下一层是，清空上一层，以此累加

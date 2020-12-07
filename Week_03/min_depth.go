@@ -48,3 +48,32 @@ func minDepth1(root *TreeNode) int {
 	}
 	return depth
 }
+
+// 迭代，广度搜索，需要删除当前层处理
+func minDepth2(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	queue := []*TreeNode{root}
+	depth := 0
+	for len(queue) > 0 {
+		depth++
+		size := len(queue)
+		// pop出当前层数据
+		for size > 0 {
+			node := queue[0]
+			queue = queue[1:]
+			size--
+			if node.Left == nil && node.Right == nil {
+				return depth
+			}
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+		}
+	}
+	return depth
+}
