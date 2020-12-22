@@ -34,17 +34,17 @@ func lengthOfLongestSubstring1(s string) int {
 	res := 0
 	dp := 0
 	for i := 0; i < len(s); i++ {
-		index, ok := strMap[s[i]]
+		dupIndex, ok := strMap[s[i]]
 		if ok == false {
-			index = -1
+			dupIndex = -1
 		}
 		strMap[s[i]] = i
-		// 如果当前小于当前索引，则加1
-		if dp < i-index {
+		// 前面没有重复
+		if dp < i-dupIndex {
 			dp += 1
 		} else {
 			// 当前相同字母当上一个字母的长度
-			dp = i - index
+			dp = i - dupIndex
 		}
 		res = max(res, dp)
 	}
