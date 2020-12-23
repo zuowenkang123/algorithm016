@@ -83,3 +83,57 @@ func dfs(left, right int, str string) {
 
 	return
 }
+
+// 回溯
+func generateParenthesis2(n int) []string {
+	res = make([]string, 0, 2*n)
+	genBacktrack(0, 0, n, "")
+	return res
+}
+
+func genBacktrack(left, right, n int, str string) {
+	// termination
+	if len(str) == n*2 {
+		res = append(res, str)
+		return
+	}
+
+	if left < n {
+		// process
+		str = str + "("
+		// drill down
+		genBacktrack(left+1, right, n, str)
+		// reverse
+		str = str[:len(str)-1]
+	}
+	if right < left {
+		str = str + ")"
+		genBacktrack(left, right+1, n, str)
+		str = str[:len(str)-1]
+	}
+	return
+}
+
+func generateParenthesis3(n int) []string {
+	res = make([]string, 0, 2*n)
+	generate_parenthesis3(0, 0, n)
+	return res
+}
+
+func generate_parenthesis3(l, r, n int) {
+	str := ""
+	for l <= n && r <= n {
+		if l <= n {
+			str += "("
+			l++
+		}
+		if r < l {
+			str += ")"
+			r++
+			if r == l {
+				res = append(res, str)
+			}
+
+		}
+	}
+}
