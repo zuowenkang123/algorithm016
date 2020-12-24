@@ -1,4 +1,4 @@
-package Week_06
+package dp
 
 // https://leetcode-cn.com/problems/maximum-product-subarray/description/
 // 2020-10-11
