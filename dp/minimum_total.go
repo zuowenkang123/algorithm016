@@ -1,4 +1,4 @@
-package Week_06
+package dp
 
 // https://leetcode-cn.com/problems/triangle/solution/golangban-triangle-by-studyzy/
 // 2020-10-11

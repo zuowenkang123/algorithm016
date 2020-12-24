@@ -1,4 +1,4 @@
-package Week_01
+package dp
 
 // https://leetcode-cn.com/problems/climbing-stairs/
 // 2020-09-07
