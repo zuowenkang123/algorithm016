@@ -36,5 +36,5 @@ func NSum(nums []int, sum int) int {
 			}
 		}
 	}
-	return dp[n-1][sum]
+	return dp[n][sum]
 }
