@@ -32,3 +32,18 @@ func firstUniqChar1(s string) int {
 	}
 	return -1
 }
+
+// https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/
+// 返回字符串
+func firstUniqChar2(s string) byte {
+	charMap := make(map[byte]int, 0)
+	for i := 0; i < len(s); i++ {
+		charMap[s[i]]++
+	}
+	for i := 0; i < len(s); i++ {
+		if charMap[s[i]] == 1 {
+			return s[i]
+		}
+	}
+	return " "[0]
+}
