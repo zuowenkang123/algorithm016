@@ -36,10 +36,9 @@ func canPartition(nums []int) bool {
 	}
 	dp[0][nums[0]] = true
 	for i := 1; i < n; i++ {
-		v := nums[i]
 		for j := 1; j <= target; j++ {
-			if j >= v {
-				dp[i][j] = dp[i-1][j] || dp[i-1][j-v]
+			if j >= nums[i] {
+				dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i]]
 			} else {
 				dp[i][j] = dp[i-1][j]
 			}
