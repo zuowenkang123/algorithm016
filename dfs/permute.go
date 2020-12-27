@@ -1,4 +1,4 @@
-package Week_03
+package dfs
 
 // https://leetcode-cn.com/problems/permutations/
 // 2020-09-23

@@ -1,4 +1,4 @@
-package Week_03
+package dfs
 
 // https://leetcode-cn.com/problems/generate-parentheses/
 // 2020-09-21
