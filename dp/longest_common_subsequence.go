@@ -1,4 +1,4 @@
-package Week_06
+package dp
 
 // https://leetcode-cn.com/problems/longest-common-subsequence/
 // 2020-10-09 22:23:56
